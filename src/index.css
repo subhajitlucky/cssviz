@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* DARK MODE (Default / Cyberpunk) */
+  --bg: #020617;        /* Slate-950: Deep, rich dark */
+  --text-primary: #f8fafc; /* Slate-50 */
+  --text-secondary: #94a3b8; /* Slate-400 */
+  
+  /* Glass Card System */
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --card-border: rgba(255, 255, 255, 0.1);
+  
+  /* Shadows & Glows */
+  --shadow-surface: 0 10px 40px -10px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.25); /* Subtle neon glow */
+  
+  --overlay-opacity: 1; /* For glass shine effects */
+  
+  color-scheme: dark;
+}
+
+.light {
+  /* LIGHT MODE (Clean SaaS) */
+  --bg: #f8fafc;        /* Slate-50: Crisp, clean grey-white */
+  --text-primary: #0f172a; /* Slate-900: High contrast text */
+  --text-secondary: #64748b; /* Slate-500: Readable muted text */
+  
+  /* Solid Card System (No Glass) */
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0; /* Slate-200 */
+  
+  /* Sharp Shadows (No Neon) */
+  --shadow-surface: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  
+  --overlay-opacity: 0; /* Hide glass shine effects in light mode */
+  
+  color-scheme: light;
+}
+
+/* Body Backgrounds */
+.dark body {
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.12), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.12), transparent 25%),
+    var(--bg);
+}
+
+.light body {
+  /* Clean, subtle gradient - barely visible, mostly flat */
+  background: 
+    radial-gradient(circle at 50% 0%, #f1f5f9, transparent 40%),
+    var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text-primary);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Global utilities */
+
+@layer base {
+  h1, d
+  h2,
+  h3,
+  h4 {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border backdrop-blur-xl transition-colors duration-300;
+    background: var(--card);
+    border-color: var(--border);
+    color: var(--text);
+    box-shadow: var(--shadow);
+  }
+
+  .neon-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .neon-border::after {
+    content: '';
+    position: absolute;
+    inset: -120%;
+    background: conic-gradient(from 90deg, #6366f1, #06b6d4, #16a34a, #6366f1);
+    animation: gradient-spin 12s linear infinite;
+  }
+
+  .neon-border::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: var(--bg);
+    backdrop-filter: blur(16px);
+    z-index: 1;
+  }
+
+  .neon-content {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* Overlay tuning for glass cards */
+.glass .glass-overlay {
+  opacity: 0.5;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+.light .glass .glass-overlay {
+  opacity: 0.4;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(241, 245, 249, 0.6));
+}
+.dark .glass .glass-overlay {
+  opacity: 0.55;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.14), rgba(6, 182, 212, 0.08));
+}
+
+@keyframes gradient-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

@@ -70,21 +70,21 @@ const GridLab = () => {
       preview={
         <div className="space-y-3">
           <div
-            className="grid min-h-[260px] rounded-xl border border-white/10 bg-black/30 p-4"
+            className="grid min-h-[260px] rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm dark:border-white/12 dark:bg-slate-900/40"
             style={{ gap: `${gap}px`, gridTemplateColumns: templateColumns, gridTemplateRows: templateRows, alignItems: align }}
           >
             {gridItems.map((item) => (
               <motion.div
                 key={item}
                 layout
-                className="flex items-center justify-center rounded-xl bg-gradient-to-br from-primary/80 via-secondary/70 to-accent/70 text-lg font-semibold text-slate-900 shadow-glow"
+                className="flex items-center justify-center rounded-xl bg-gradient-to-br from-amber-300 via-orange-400 to-amber-500 text-lg font-semibold text-slate-900 shadow-glow"
                 whileHover={{ scale: 1.03 }}
               >
                 {item}
               </motion.div>
             ))}
           </div>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-600 dark:text-slate-400">
             Auto-fit compresses or expands tracks to fill the row; toggle it off to compare with fixed repeat() counts.
           </p>
         </div>

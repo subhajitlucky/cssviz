@@ -6,6 +6,15 @@ export type VisualizerKey =
   | 'colors'
   | 'animations'
   | 'variables'
+  | 'selectors'
+  | 'displayModes'
+  | 'floats'
+  | 'positioning'
+  | 'multiColumn'
+  | 'responsiveDesign'
+  | 'mediaQueries'
+  | 'containerQueries'
+  | 'unitsFunctions'
 
 export type Topic = {
   name: string
@@ -24,6 +33,7 @@ export const topics: Topic[] = [
     summary: 'Understand how selectors target elements and how specificity resolves conflicts.',
     difficulty: 'foundation',
     tags: ['selectors', 'specificity', 'cascade'],
+    visualizer: 'selectors',
     bullets: ['Pseudo-classes & pseudo-elements', 'Specificity math and the cascade', ':is(), :where(), and :has()'],
   },
   {
@@ -49,6 +59,7 @@ export const topics: Topic[] = [
     summary: 'Inline, block, inline-block, table, and flow-root behaviors and their layout effects.',
     difficulty: 'foundation',
     tags: ['display', 'flow'],
+    visualizer: 'displayModes',
     bullets: ['Formatting contexts', 'flow-root and block formatting', 'inline vs inline-block nuances'],
   },
   {
@@ -57,6 +68,7 @@ export const topics: Topic[] = [
     summary: 'Legacy layout tool with modern containment and clearfix recipes.',
     difficulty: 'intermediate',
     tags: ['floats', 'legacy layout'],
+    visualizer: 'floats',
     bullets: ['Float stacking rules', 'clearfix techniques', 'BFC and containment'],
   },
   {
@@ -65,6 +77,7 @@ export const topics: Topic[] = [
     summary: 'Static, relative, absolute, sticky, and fixed positioning with stacking context examples.',
     difficulty: 'foundation',
     tags: ['position', 'stacking-context'],
+    visualizer: 'positioning',
     bullets: ['Containing blocks', 'z-index and stacking contexts', 'Sticky thresholds'],
   },
   {
@@ -91,6 +104,7 @@ export const topics: Topic[] = [
     summary: 'Newspaper-like flows with columns, spanning, and balancing strategies.',
     difficulty: 'intermediate',
     tags: ['columns', 'flow'],
+    visualizer: 'multiColumn',
     bullets: ['column-count vs column-width', 'spanning headers', 'column gaps and rules'],
   },
   {
@@ -99,6 +113,7 @@ export const topics: Topic[] = [
     summary: 'Fluid design systems built with constraints, clamps, and progressive enhancement.',
     difficulty: 'foundation',
     tags: ['responsive', 'breakpoints'],
+    visualizer: 'responsiveDesign',
     bullets: ['Mobile-first strategy', 'fluid typography with clamp()', 'layout shifts and safe areas'],
   },
   {
@@ -107,6 +122,7 @@ export const topics: Topic[] = [
     summary: 'Craft media queries for viewport, accessibility preferences, and device capabilities.',
     difficulty: 'foundation',
     tags: ['media', 'responsive'],
+    visualizer: 'mediaQueries',
     bullets: ['prefers-reduced-motion', 'light/dark preferences', 'orientation and color gamut'],
   },
   {
@@ -115,6 +131,7 @@ export const topics: Topic[] = [
     summary: 'Component-driven responsiveness using container size instead of viewport.',
     difficulty: 'intermediate',
     tags: ['container-queries', 'responsive'],
+    visualizer: 'containerQueries',
     bullets: ['@container rules', 'Container units (cqw/cqh)', 'Style queries vs size queries'],
   },
   {
@@ -231,6 +248,7 @@ export const topics: Topic[] = [
     summary: 'Compose responsive formulas with calc(), clamp(), min(), and max().',
     difficulty: 'foundation',
     tags: ['functions', 'math'],
+    visualizer: 'unitsFunctions',
     bullets: ['Constraint-based sizing', 'Combining viewport + rem units', 'Fallback-friendly formulas'],
   },
   {
@@ -239,6 +257,7 @@ export const topics: Topic[] = [
     summary: 'Choose the right units for sizing, spacing, and layout grids.',
     difficulty: 'foundation',
     tags: ['units', 'responsive'],
+    visualizer: 'unitsFunctions',
     bullets: ['Root-based scaling', 'Viewport + container units', 'fr tracks in grid'],
   },
   {

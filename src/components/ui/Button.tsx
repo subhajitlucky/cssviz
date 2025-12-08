@@ -8,9 +8,9 @@ const buttonStyles = cva(
     variants: {
       variant: {
         primary:
-          'bg-gradient-to-r from-primary via-secondary to-accent text-white shadow-glow hover:scale-[1.02] hover:shadow-glow/70',
+          'bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 text-slate-900 shadow-sm hover:shadow-md hover:-translate-y-[1px]',
         secondary:
-          'bg-surface text-body-text border border-glass hover:border-slate-300 dark:hover:border-white/30 hover:shadow-glow hover:-translate-y-[1px]',
+          'bg-white text-slate-900 border border-slate-200 shadow-sm hover:border-slate-300 hover:-translate-y-[1px] dark:bg-surface dark:text-body-text dark:border-glass dark:hover:border-white/30 dark:hover:shadow-glow/60',
         ghost: 'text-muted-text hover:text-body-text hover:bg-black/5 dark:hover:bg-white/5',
       },
       size: {

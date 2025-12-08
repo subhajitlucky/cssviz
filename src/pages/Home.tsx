@@ -74,20 +74,30 @@ const Home = () => {
             <div className="neon-content space-y-4 p-6">
               <div className="flex items-center justify-between">
                 <p className="text-xs uppercase tracking-[0.2em] text-primary">Live token playground</p>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white">Real-time</span>
+                <span className="rounded-full bg-slate-100 text-slate-700 px-3 py-1 text-xs dark:bg-white/10 dark:text-white">
+                  Real-time
+                </span>
               </div>
               <div className="grid gap-3">
-                <div className="rounded-xl border border-white/10 bg-black/40 p-4">
+                <div className="rounded-xl border p-4 bg-white text-slate-900 border-slate-200/80 shadow-sm dark:bg-black/40 dark:text-white dark:border-white/10">
                   <p className="text-xs text-primary">Clamp formula</p>
-                  <p className="font-mono text-sm text-white">
+                  <p className="font-mono text-sm">
                     clamp(1rem, 0.8rem + 1vw, 1.5rem)
                   </p>
                 </div>
-                <div className="grid grid-cols-2 gap-2 text-xs text-slate-200">
-                  <div className="rounded-lg bg-primary/20 px-3 py-2">container queries</div>
-                  <div className="rounded-lg bg-secondary/20 px-3 py-2">animations</div>
-                  <div className="rounded-lg bg-accent/20 px-3 py-2">gradients</div>
-                  <div className="rounded-lg bg-white/10 px-3 py-2">houdini</div>
+                <div className="grid grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-200">
+                  <div className="rounded-lg bg-primary/15 text-primary/90 px-3 py-2 dark:bg-primary/20 dark:text-white">
+                    container queries
+                  </div>
+                  <div className="rounded-lg bg-secondary/15 text-secondary/90 px-3 py-2 dark:bg-secondary/20 dark:text-white">
+                    animations
+                  </div>
+                  <div className="rounded-lg bg-accent/15 text-accent/90 px-3 py-2 dark:bg-accent/20 dark:text-white">
+                    gradients
+                  </div>
+                  <div className="rounded-lg bg-slate-200/70 text-slate-800 px-3 py-2 dark:bg-white/10 dark:text-white">
+                    houdini
+                  </div>
                 </div>
               </div>
             </div>
@@ -114,7 +124,7 @@ const Home = () => {
                 <div className="flex h-full flex-col gap-4 p-5">
                   <div className="flex items-center justify-between">
                     <p className="text-xs uppercase tracking-[0.18em] text-primary">{topic.difficulty}</p>
-                    <span className="rounded-full bg-slate-100 dark:bg-white/10 px-3 py-1 text-xs text-slate-600 dark:text-slate-200">
+                    <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-slate-200">
                       {topic.tags.slice(0, 2).join(' · ')}
                     </span>
                   </div>
@@ -157,7 +167,7 @@ const Home = () => {
               <GlassCard className="h-full">
                 <div className="flex h-full flex-col gap-3 p-5">
                   <div className="flex items-center gap-3">
-                    <div className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-white shadow-glow">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl border border-slate-200/80 bg-slate-100 text-slate-800 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-white dark:shadow-glow">
                       {card.icon}
                     </div>
                     <div>
@@ -191,12 +201,18 @@ const Home = () => {
                 <p className="text-sm text-slate-600 dark:text-slate-300">{topic.summary}</p>
                 <div className="flex flex-wrap gap-2 text-xs text-slate-300">
                   {topic.tags.slice(0, 3).map((tag) => (
-                    <span key={tag} className="rounded-full bg-slate-100 dark:bg-white/10 px-3 py-1">
+                    <span
+                      key={tag}
+                      className="rounded-full border border-slate-200 bg-white px-3 py-1 font-semibold text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-slate-100"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <Link className="text-sm font-semibold text-primary hover:text-slate-900 dark:hover:text-white" to={topic.path}>
+                <Link
+                  className="inline-flex items-center gap-1 rounded-full border border-transparent px-3 py-1 text-sm font-semibold text-primary hover:border-slate-300 hover:bg-white/70 hover:text-slate-900 dark:hover:border-white/20 dark:hover:bg-white/5 dark:hover:text-white"
+                  to={topic.path}
+                >
                   Read the page
                 </Link>
               </div>

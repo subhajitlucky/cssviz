@@ -1,0 +1,132 @@
+{
+    "projectName": "CSS Universe",
+    "description": "A complete, interactive, visually rich website that teaches ALL CSS topics—layouts, typography, animations, colors, rendering, architecture, variables, functions, Houdini APIs, and more—with visualizations, playgrounds, and live examples. Built using React + Vite + TailwindCSS/shadcn. The design must be modern, unique, futuristic, and highly appealing.",
+    "techStack": {
+      "framework": "React",
+      "bundler": "Vite",
+      "styling": "TailwindCSS with optional shadcn/ui components",
+      "routing": "react-router-dom",
+      "theme": {
+        "supportsDarkMode": true,
+        "persistInLocalStorage": true
+      }
+    },
+    "designLanguage": {
+      "aesthetic": "futuristic, neon-minimal, glassmorphism",
+      "heroGradient": "linear-gradient(135deg, #6366F1, #06B6D4, #16A34A)",
+      "darkHeroGradient": "linear-gradient(135deg, #818CF8, #22D3EE, #4ADE80)",
+      "cards": "rounded-2xl shadow-xl bg-opacity-60 backdrop-blur-xl border border-white/10 hover:scale-[1.02] transition-all",
+      "animations": {
+        "onScrollReveal": true,
+        "cardHoverGlow": true,
+        "pageTransitions": "fade-up smooth-motion",
+        "interactiveControls": "real-time animated feedback"
+      },
+      "shapes": ["blobs", "floating gradients", "glass panels"]
+    },
+    "pages": {
+      "home": {
+        "path": "/",
+        "hero": {
+          "title": "CSS Universe — Master Every CSS Concept Visually",
+          "subtitle": "Explore the entire CSS ecosystem using interactive playgrounds, animations, diagrams, and real-time visualizers.",
+          "primaryButton": "Start Learning",
+          "secondaryButton": "Explore Visualizers",
+          "background": "animated gradient with floating glowing shapes"
+        },
+        "sections": ["topicCategoriesGrid", "popularVisualizers", "interactiveShowcase"]
+      },
+      "topics": [
+        { "name": "Selectors & Specificity", "path": "/selectors" },
+        { "name": "Cascade & Inheritance", "path": "/cascade" },
+        { "name": "Box Model", "path": "/box-model" },
+        { "name": "Display Modes", "path": "/display" },
+        { "name": "Floats & Clearfix", "path": "/floats" },
+        { "name": "Positioning", "path": "/positioning" },
+        { "name": "Flexbox Visualizer", "path": "/flexbox" },
+        { "name": "Grid Visualizer", "path": "/grid" },
+        { "name": "Multi-Column Layout", "path": "/multicolumn" },
+        { "name": "Responsive Design", "path": "/responsive" },
+        { "name": "Media Queries", "path": "/media-queries" },
+        { "name": "Container Queries", "path": "/container-queries" },
+        { "name": "Typography Lab", "path": "/typography" },
+        { "name": "Fonts & Variable Fonts", "path": "/fonts" },
+        { "name": "Colors & Gradients", "path": "/colors" },
+        { "name": "Backgrounds & Parallax", "path": "/backgrounds" },
+        { "name": "Borders & Shapes", "path": "/borders" },
+        { "name": "Clip-path & Masking", "path": "/clipping" },
+        { "name": "Filters & Effects", "path": "/filters" },
+        { "name": "Shadows Playground", "path": "/shadows" },
+        { "name": "Transitions", "path": "/transitions" },
+        { "name": "CSS Animations + Keyframes", "path": "/animations" },
+        { "name": "3D Transforms & Perspective", "path": "/3d" },
+        { "name": "Motion Path (offset-path)", "path": "/motion-path" },
+        { "name": "CSS Variables (Custom Properties)", "path": "/variables" },
+        { "name": "Functions (calc, min, max, clamp)", "path": "/functions" },
+        { "name": "Units (px, em, rem, vw, vh, fr, %)", "path": "/units" },
+        { "name": "Accessibility in CSS", "path": "/css-a11y" },
+        { "name": "Browser Rendering Pipeline", "path": "/rendering" },
+        { "name": "Reflow, Repaint & Compositing", "path": "/reflow" },
+        { "name": "GPU Acceleration", "path": "/gpu" },
+        { "name": "Print Styling", "path": "/print" },
+        { "name": "CSS Architecture (BEM, OOCSS, SMACSS)", "path": "/architecture" },
+        { "name": "Houdini API — Paint Worklet", "path": "/houdini-paint" },
+        { "name": "Houdini API — Typed OM", "path": "/houdini-typedom" },
+        { "name": "Houdini API — Layout API", "path": "/houdini-layout" },
+        { "name": "CSS Debugging Tools", "path": "/debugging" }
+      ],
+      "visualizers": {
+        "flexbox": {
+          "controls": ["justify-content", "align-items", "flex-direction", "wrap", "gap"],
+          "animation": true
+        },
+        "grid": {
+          "controls": ["template-columns", "template-rows", "auto-fit", "auto-fill", "gap"],
+          "animation": true
+        },
+        "boxModel": {
+          "layers": ["content", "padding", "border", "margin"],
+          "liveAdjustments": true
+        },
+        "typography": {
+          "controls": ["font-size", "line-height", "letter-spacing", "variable-font-axis"],
+          "liveRendering": true
+        },
+        "colors": {
+          "tools": ["color wheel", "gradient builder", "hsl sliders"],
+          "previewPanels": true
+        },
+        "animations": {
+          "controls": ["duration", "timing", "keyframes editor", "delay", "iterations"],
+          "realTimePreview": true
+        }
+      }
+    },
+    "components": {
+      "Navbar": ["logo", "links", "themeToggle"],
+      "Footer": ["links", "twitterPlaceholder", "githubPlaceholder"],
+      "CategoryCard": ["title", "description", "onClick"],
+      "VisualizerPanel": ["controls", "canvas", "cssOutput", "resetButton"],
+      "SliderControl": ["label", "min", "max", "step", "onChange"],
+      "ToggleGroup": ["options", "active"],
+      "ColorWheel": ["hue", "saturation", "lightness"],
+      "GradientBuilder": ["type", "stops", "direction"]
+    },
+    "globalFeatures": {
+      "darkMode": true,
+      "persistentTheme": true,
+      "realTimeRendering": true,
+      "smoothAnimations": true,
+      "dragAndDrop": true,
+      "copyCSSButton": true,
+      "mobileResponsive": true
+    },
+    "deliverables": {
+      "fullReactProject": true,
+      "allPagesImplemented": true,
+      "allVisualizersFunctional": true,
+      "darkLightTheme": true,
+      "documentationIncluded": true
+    }
+  }
+  

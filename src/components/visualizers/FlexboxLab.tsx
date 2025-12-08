@@ -92,7 +92,7 @@ const FlexboxLab = () => {
       preview={
         <div className="flex min-h-[240px] flex-1 flex-col gap-4">
           <div
-            className="flex flex-1 rounded-xl border border-white/10 bg-black/25 p-4"
+            className="flex flex-1 rounded-xl border border-slate-200 bg-slate-100 p-4 dark:border-white/10 dark:bg-black/25"
             style={{ justifyContent, alignItems, flexDirection, flexWrap, gap }}
           >
             {flexItems.map((item, index) => (
@@ -100,7 +100,7 @@ const FlexboxLab = () => {
                 key={item}
                 drag
                 dragMomentum={false}
-                className="flex min-w-[90px] flex-1 cursor-grab select-none items-center justify-center rounded-xl bg-gradient-to-br from-primary/90 via-secondary/80 to-accent/80 text-slate-900 shadow-glow"
+                className="flex min-w-[120px] flex-none cursor-grab select-none items-center justify-center rounded-xl bg-gradient-to-br from-amber-300 via-orange-400 to-amber-500 px-4 py-2 text-slate-900 shadow-glow"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 animate={

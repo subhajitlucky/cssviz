@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, type Easing } from 'framer-motion'
 import VisualizerPanel from './VisualizerPanel'
 import SliderControl from '@/components/controls/SliderControl'
 import SelectControl from '@/components/controls/SelectControl'
@@ -47,6 +47,12 @@ const AnimationLab = () => {
   }
 
   const repeat = iterations === 'infinite' ? Infinity : Number(iterations)
+  const easingMap: Record<TimingFunction, Easing> = {
+    'ease-in-out': 'easeInOut',
+    linear: 'linear',
+    'ease-out': 'easeOut',
+    'cubic-bezier(0.65,0,0.35,1)': [0.65, 0, 0.35, 1],
+  }
 
   return (
     <VisualizerPanel
@@ -99,7 +105,7 @@ const AnimationLab = () => {
             transition={{
               duration,
               delay,
-              ease: timingFunction as any,
+              ease: easingMap[timingFunction],
               repeat,
               repeatType: direction === 'alternate' ? 'reverse' : 'loop',
             }}

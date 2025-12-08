@@ -5,7 +5,7 @@ type SwitchControlProps = {
 }
 
 const SwitchControl = ({ label, checked, onChange }: SwitchControlProps) => (
-  <label className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-300">
+  <label className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
     <span>{label}</span>
     <button
       type="button"
@@ -13,8 +13,8 @@ const SwitchControl = ({ label, checked, onChange }: SwitchControlProps) => (
       onClick={() => onChange(!checked)}
       className={`relative flex h-7 w-12 items-center rounded-full border transition ${
         checked
-          ? 'border-primary/60 bg-primary/20'
-          : 'border-white/20 bg-white/5 hover:border-white/40'
+          ? 'border-primary/60 bg-primary/15'
+          : 'border-slate-200 bg-slate-100 hover:border-slate-300 dark:border-white/20 dark:bg-white/5 dark:hover:border-white/40'
       }`}
     >
       <span

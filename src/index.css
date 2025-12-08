@@ -4,7 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root,
+.dark {
   /* DARK MODE (Default / Cyberpunk) */
   --bg: #020617;        /* Slate-950: Deep, rich dark */
   --text-primary: #f8fafc; /* Slate-50 */
@@ -19,6 +20,12 @@
   --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.25); /* Subtle neon glow */
   
   --overlay-opacity: 1; /* For glass shine effects */
+
+  /* Aliases for legacy tokens used in custom classes */
+  --card: var(--card-bg);
+  --border: var(--card-border);
+  --text: var(--text-primary);
+  --shadow: var(--shadow-surface);
   
   color-scheme: dark;
 }
@@ -31,13 +38,19 @@
   
   /* Solid Card System (No Glass) */
   --card-bg: #ffffff;
-  --card-border: #e2e8f0; /* Slate-200 */
+  --card-border: #cbd5e1; /* Slate-300 for clearer edges */
   
   /* Sharp Shadows (No Neon) */
-  --shadow-surface: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-surface: 0 8px 24px -12px rgba(15, 23, 42, 0.22), 0 4px 14px -10px rgba(15, 23, 42, 0.16);
+  --shadow-glow: 0 4px 10px -4px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.08);
   
   --overlay-opacity: 0; /* Hide glass shine effects in light mode */
+
+  /* Aliases for custom class usage */
+  --card: var(--card-bg);
+  --border: var(--card-border);
+  --text: var(--text-primary);
+  --shadow: var(--shadow-surface);
   
   color-scheme: light;
 }
@@ -60,6 +73,7 @@
 body {
   margin: 0;
   min-height: 100vh;
+  background-color: var(--bg);
   color: var(--text-primary);
   transition: color 0.3s ease, background-color 0.3s ease;
 }
@@ -67,7 +81,7 @@ body {
 /* Global utilities */
 
 @layer base {
-  h1, d
+  h1,
   h2,
   h3,
   h4 {
@@ -79,10 +93,10 @@ body {
 @layer components {
   .glass {
     @apply border backdrop-blur-xl transition-colors duration-300;
-    background: var(--card);
-    border-color: var(--border);
-    color: var(--text);
-    box-shadow: var(--shadow);
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-surface);
   }
 
   .neon-border {
@@ -120,8 +134,8 @@ body {
   transition: opacity 0.3s ease, background 0.3s ease;
 }
 .light .glass .glass-overlay {
-  opacity: 0.4;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(241, 245, 249, 0.6));
+  opacity: 0.18;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(241, 245, 249, 0.5));
 }
 .dark .glass .glass-overlay {
   opacity: 0.55;
@@ -133,4 +147,3 @@ body {
     transform: rotate(360deg);
   }
 }
-

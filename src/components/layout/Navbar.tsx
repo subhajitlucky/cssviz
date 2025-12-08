@@ -6,8 +6,8 @@ import { cn } from '@/utils/cn'
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/flexbox', label: 'Visualizers' },
-  { to: '/selectors', label: 'Topics' },
+  { to: '/visualizers', label: 'Visualizers' },
+  { to: '/concepts', label: 'Concepts' },
 ]
 
 const Navbar = () => {
@@ -15,9 +15,8 @@ const Navbar = () => {
     <header className="sticky top-0 z-40 w-full border-b border-glass bg-surface/85 backdrop-blur-xl transition-colors duration-300">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="group flex items-center gap-3 text-body-text transition-colors">
-          <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent shadow-glow">
+          <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl bg-amber-500 shadow-sm">
             <Sparkles className="h-5 w-5 text-slate-900" />
-            <div className="absolute inset-0 bg-white/40 opacity-0 transition-opacity group-hover:opacity-60" />
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-muted-text">CSS Universe</p>

@@ -13,6 +13,16 @@ import FlexboxLab from '@/components/visualizers/FlexboxLab'
 import GridLab from '@/components/visualizers/GridLab'
 import TypographyLab from '@/components/visualizers/TypographyLab'
 import VariablesLab from '@/components/visualizers/VariablesLab'
+import SelectorsLab from '@/components/visualizers/SelectorsLab'
+import DisplayModesLab from '@/components/visualizers/DisplayModesLab'
+import FloatsLab from '@/components/visualizers/FloatsLab'
+import PositioningLab from '@/components/visualizers/PositioningLab'
+import MultiColumnLab from '@/components/visualizers/MultiColumnLab'
+import ResponsiveDesignLab from '@/components/visualizers/ResponsiveDesignLab'
+import MediaQueriesLab from '@/components/visualizers/MediaQueriesLab'
+import ContainerQueriesLab from '@/components/visualizers/ContainerQueriesLab'
+import UnitsFunctionsLab from '@/components/visualizers/UnitsFunctionsLab'
+import GenericVisualizer from '@/components/visualizers/GenericVisualizer'
 import { topics, type Topic, type VisualizerKey } from '@/data/topics'
 
 const visualizers: Partial<Record<VisualizerKey, ReactElement>> = {
@@ -23,6 +33,15 @@ const visualizers: Partial<Record<VisualizerKey, ReactElement>> = {
   colors: <ColorLab />,
   animations: <AnimationLab />,
   variables: <VariablesLab />,
+  selectors: <SelectorsLab />,
+  displayModes: <DisplayModesLab />,
+  floats: <FloatsLab />,
+  positioning: <PositioningLab />,
+  multiColumn: <MultiColumnLab />,
+  responsiveDesign: <ResponsiveDesignLab />,
+  mediaQueries: <MediaQueriesLab />,
+  containerQueries: <ContainerQueriesLab />,
+  unitsFunctions: <UnitsFunctionsLab />,
 }
 
 const TopicPage = ({ topic }: { topic: Topic }) => {
@@ -76,6 +95,29 @@ const TopicPage = ({ topic }: { topic: Topic }) => {
             </div>
           </GlassCard>
         </div>
+
+        <GlassCard>
+          <div className="grid gap-4 p-5 md:grid-cols-3">
+            <div className="space-y-2">
+              <p className="text-xs uppercase tracking-[0.18em] text-primary">Definition</p>
+              <p className="text-sm text-slate-600 dark:text-slate-300">{topic.summary}</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-xs uppercase tracking-[0.18em] text-primary">Syntax</p>
+              <div className="rounded-lg border border-slate-200/70 bg-slate-50 p-3 font-mono text-xs text-slate-800 shadow-sm dark:border-white/12 dark:bg-slate-900/60 dark:text-slate-100">
+                {/* Placeholder syntax hint; can be tailored per topic later */}
+                {/* Use first bullet as a hint if available */}
+                {topic.bullets[0] ?? 'See visualizer for syntax examples.'}
+              </div>
+            </div>
+            <div className="space-y-2">
+              <p className="text-xs uppercase tracking-[0.18em] text-primary">Example</p>
+              <div className="rounded-lg border border-slate-200/70 bg-slate-50 p-3 text-sm text-slate-700 shadow-sm dark:border-white/12 dark:bg-slate-900/60 dark:text-slate-200">
+                Use the visualizer below to apply these properties and see the result live.
+              </div>
+            </div>
+          </div>
+        </GlassCard>
 
         <div className="grid gap-4 lg:grid-cols-[1.6fr,1fr]">
           <GlassCard>
@@ -135,11 +177,9 @@ const TopicPage = ({ topic }: { topic: Topic }) => {
           </GlassCard>
         </div>
 
-        {visualizer && (
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            {visualizer}
-          </motion.div>
-        )}
+        <motion.div id="visualizer" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
+          {visualizer ?? <GenericVisualizer topic={topic} />}
+        </motion.div>
 
         {related.length > 0 && (
           <section className="space-y-4">

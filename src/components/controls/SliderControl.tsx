@@ -9,10 +9,10 @@ type SliderControlProps = {
 }
 
 const SliderControl = ({ label, value, min, max, step = 1, onChange, suffix }: SliderControlProps) => (
-  <label className="flex flex-col gap-2 rounded-xl border border-white/10 bg-white/5 p-3">
-    <div className="flex items-center justify-between text-sm text-slate-300">
+  <label className="flex flex-col gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
+    <div className="flex items-center justify-between text-sm text-slate-700 dark:text-slate-300">
       <span>{label}</span>
-      <span className="font-semibold text-white">
+      <span className="font-semibold text-slate-900 dark:text-white">
         {value}
         {suffix}
       </span>

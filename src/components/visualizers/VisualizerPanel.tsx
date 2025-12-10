@@ -76,7 +76,7 @@ const VisualizerPanel = ({
               </ul>
             </div>
           )}
-          <div className="flex flex-col gap-3">{controls}</div>
+        <div className="flex flex-col gap-3">{controls}</div>
         </div>
         <div className="space-y-4">
           <div className="relative overflow-hidden rounded-xl border border-slate-200/70 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-slate-900/75">
@@ -95,10 +95,10 @@ const VisualizerPanel = ({
               <div className="flex items-start gap-3 rounded-xl border border-slate-200/80 bg-slate-50 p-4 font-mono text-xs text-slate-800 shadow-sm dark:border-white/10 dark:bg-black/40 dark:text-primary/90">
                 <div className="flex-1 whitespace-pre-wrap break-words leading-relaxed">{cssOutput}</div>
                 <Button variant="ghost" size="sm" onClick={handleCopy} className="text-slate-700 hover:text-slate-900 dark:text-primary dark:hover:text-white">
-                  <Copy className="h-4 w-4" />
-                  {copied ? 'Copied' : 'Copy'}
-                </Button>
-              </div>
+                <Copy className="h-4 w-4" />
+                {copied ? 'Copied' : 'Copy'}
+              </Button>
+            </div>
             ))}
         </div>
       </div>

@@ -15,18 +15,28 @@ const TypographyLab = () => {
   const [fontFamily, setFontFamily] = useState('Space Grotesk, Inter, sans-serif')
 
   const cssOutput = useMemo(
-    () => `
-.text-lab {
+    () => `.text-lab {
   font-family: ${fontFamily};
   font-size: ${fontSize}px;
   line-height: ${lineHeight};
   letter-spacing: ${letterSpacing}ch;
   font-weight: ${fontWeight};
   font-variation-settings: "wght" ${fontWeight};
-}
-`,
+}`,
     [fontFamily, fontSize, fontWeight, letterSpacing, lineHeight],
   )
+
+  const htmlMarkup = `<div class="text-lab">
+  <h4>Rhythm & Readability</h4>
+  <p>${sampleText}</p>
+</div>`
+
+  const status = `${fontSize}px / ${lineHeight} height · weight: ${fontWeight}`
+  const tasks = [
+    'Increase line-height to improve readability of body text.',
+    'Adjust weight to see variable font interpolation.',
+    'Negative letter-spacing can tighten headlines; loose spacing helps caps.',
+  ]
 
   const reset = () => {
     setFontSize(22)
@@ -40,10 +50,16 @@ const TypographyLab = () => {
     <VisualizerPanel
       title="Typography Lab"
       description="Balance readability and style with controlled rhythm. Variable font axes react in real time to weight changes."
-      cssOutput={cssOutput.trim()}
+      cssOutput={cssOutput}
+      tasks={tasks}
+      status={status}
+      codeBlocks={[
+        { label: 'CSS', code: cssOutput },
+        { label: 'HTML', code: htmlMarkup },
+      ]}
       onReset={reset}
       controls={
-        <>
+        <div className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
           <SliderControl label="Font size" value={fontSize} min={14} max={48} onChange={setFontSize} suffix="px" />
           <SliderControl
             label="Line height"
@@ -78,12 +94,12 @@ const TypographyLab = () => {
               { label: 'serif sample', value: 'Georgia, Times, serif' },
             ]}
           />
-        </>
+        </div>
       }
       preview={
         <div className="space-y-3">
           <div
-            className="rounded-xl border border-white/10 bg-white/5 p-4"
+            className="rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-black/20"
             style={{
               fontFamily,
               fontSize,
@@ -93,11 +109,11 @@ const TypographyLab = () => {
               fontVariationSettings: `"wght" ${fontWeight}`,
             }}
           >
-            <p className="text-primary/80 text-xs uppercase tracking-[0.2em]">Live preview</p>
-            <h4 className="text-2xl font-semibold text-white">Rhythm & Readability</h4>
-            <p className="mt-2 text-slate-200">{sampleText}</p>
+            <p className="mb-2 text-xs uppercase tracking-[0.2em] text-primary">Live preview</p>
+            <h4 className="mb-3 text-2xl font-semibold text-slate-900 dark:text-white">Rhythm & Readability</h4>
+            <p className="text-slate-700 dark:text-slate-200">{sampleText}</p>
           </div>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-500 dark:text-slate-400">
             Line-height sets vertical rhythm; letter-spacing uses character units (ch) to remain proportional.
           </p>
         </div>
@@ -107,4 +123,3 @@ const TypographyLab = () => {
 }
 
 export default TypographyLab
-

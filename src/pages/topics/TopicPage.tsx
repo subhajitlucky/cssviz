@@ -179,7 +179,7 @@ const TopicPage = ({ topic }: { topic: Topic }) => {
 
         <motion.div id="visualizer" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
           {visualizer ?? <GenericVisualizer topic={topic} />}
-        </motion.div>
+          </motion.div>
 
         {related.length > 0 && (
           <section className="space-y-4">
